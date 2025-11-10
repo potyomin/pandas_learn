@@ -1,0 +1,13 @@
+# python кеш
+__pycache__/
+*.py[cod]
+
+# виртуальное окружение
+.venv/
+
+# PyCharm
+.idea/
+
+# локальные данные
+data/
+!data/.gitkeep
