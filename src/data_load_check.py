@@ -1,21 +1,18 @@
 # Импорт библиотеки pandas
-import numpy as np
 import pandas as pd
 # Импорт переменных из файла src/config.py
-from src.config import FILE_TITANIC, HEAD_ROWS, url_titanic
+from src.config import FILE_TITANIC, HEAD_ROWS, url_titanic, NA_VALUES
 
 
 df = pd.read_csv(url_titanic)               # чтение csv-файла
 # df = pd.read_excel("file.xlsx")           # чтение excel-файла
 # df = pd.read_parquet("file.parquet")      # чтение parquet-файла
 
-NA = ["", "NA", "N/A", "-", "null"]         # список возможных пустых значений в файле
-
 df1 = pd.read_csv(                          # чтение файла с полезными параметрами
-    url_titanic,                            # имя/путь файла
+    url_titanic,                            # имя/путь файла | можно использовать локальный файл FILE_TITANIC
     sep=",",                                # разделитель "," также можно ";"
-    encoding="utf-8",                       # кодировка
-    na_values=NA,                           # распознавание пропусков
+    encoding="utf-8",                       # кодировка | можно использовать ENCODINGS[0]
+    na_values=NA_VALUES,                           # распознавание пропусков
     dtype={"PassengerId": "int64"},         # фиксация типов
     dayfirst=True                           # проверка дат на формат ДД/ММ/ГГГГ
 )
@@ -38,8 +35,8 @@ print(df.describe(include="object"), "\n")      # вывод базовой ст
 print(df.nunique(), "\n")               # количество уникальных значений в каждом столбце
 
 print(df.notna(),"\n")                  # вывод таблицы true/false которая показывает где есть ненулевые значения
-print(df.isnull(),"\n")                 # аналог предыдущего метода, но наоборот, показывает true/false
+print(df.isna(),"\n")                   # аналог предыдущего метода, но наоборот, показывает true/false
 
 print(df.notna().sum(), "\n")           # вывод количества ненулевых элементов по каждому столбцу
-print(df.isnull().sum(), "\n")          # вывод количества нулевых элементов по каждому столбцу
+print(df.isna().sum(), "\n")            # вывод количества нулевых элементов по каждому столбцу
 
