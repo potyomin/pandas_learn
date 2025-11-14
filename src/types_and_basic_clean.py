@@ -18,5 +18,6 @@ df["Age"] = pd.to_numeric(df["Age"], errors="coerce")
 #df["Age"] = pd.to_numeric(df["Age"], errors="ignore")
 # то же самое, но при некорректных данных будет падать с ошибкой (raise)
 #df["Age"] = pd.to_numeric(df["Age"], errors="raise")
-print(df.head(HEAD_ROWS).to_string())
+#print(df.head(HEAD_ROWS).to_string())
 
+print(df.iloc[:,0:3].sum())

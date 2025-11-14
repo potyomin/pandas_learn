@@ -11,3 +11,5 @@ __pycache__/
 # локальные данные
 data/
 !data/.gitkeep
+
+src/test.py
