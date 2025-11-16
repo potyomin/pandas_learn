@@ -4,7 +4,7 @@ import numpy as np          # импорт библиотеки numpy
 # Создание DataFrame из Series
 d = {
     'price':pd.Series(data=[1, 2, 3], index=['v1', 'v2', 'v3']),
-    'count':pd.Series([10, 12, 7], index=['v1', 'v2', 'v3'])
+    'count':pd.Series([10, 12, 7], ['v1', 'v2', 'v3'])
 }
 df1 = pd.DataFrame(d)
 print(df1, '\n')
