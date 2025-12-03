@@ -1,12 +1,12 @@
 # Импорт переменных из файла src/config.py
-from src.config import ENCODINGS, FILE_TITANIC
+from src.config import ENCODINGS, FILE_TITANIC, FILE_DATA
 
 
 # цикл для определения кодировки у файла
 count_enc = 0
 for enc in ENCODINGS:
     try:
-        FILE_TITANIC.read_text(encoding=enc)
+        FILE_DATA.read_text(encoding=enc)
         enc_show = enc
         break
     except UnicodeDecodeError:
