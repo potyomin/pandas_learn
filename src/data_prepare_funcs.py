@@ -22,3 +22,23 @@ df['Давление'] = df['Давление'].apply(pressure_convertor).astype
 df['Осадки'] = df['Осадки'].apply(prec_convertor)
 
 print(df.dtypes, '\n')
+
+###
+#   3.2.3 Вспомогательные функции
+###
+
+df1 = pd.read_csv(FILE_DATA, sep=';', encoding=ENCODINGS[2])
+
+print(df1, '\n')
+print(df1.dtypes, '\n')
+
+# Использование вспомогательных функций для преобразования типов данных
+# (меняют только тип данных!)
+df1['Температура'] = pd.to_numeric(df1['Температура'], errors='coerce')
+df1['Давление'] = pd.to_numeric(df1['Давление'], errors='coerce')
+df1['Дата'] = pd.to_datetime(df1['Дата'], dayfirst=True, errors='coerce')
+
+print(df1, '\n')
+print(df1.dtypes, '\n')
+
+
